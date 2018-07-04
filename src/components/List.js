@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 import ItemCard from './ItemCard';
 
 
@@ -10,11 +10,11 @@ export default class List extends React.Component {
       uri: 'https://avatars0.githubusercontent.com/u/1545577?s=460&v=4'
     };
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         { Object.keys(this.props.items).map( key => {
           return <ItemCard  key={key} item={this.props.items[key]} index={key}/>
         })}
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -22,10 +22,10 @@ export default class List extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap',
-    backgroundColor: '#000',
+    flexDirection: 'column',
+    //justifyContent: 'space-between',
+    //flexWrap: 'wrap',
+    backgroundColor: '#111',
     padding: 20
   },
   text: {
