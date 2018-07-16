@@ -10,7 +10,7 @@ export default class Top extends React.Component {
       <View style={styles.container}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Grocery List Scan</Text>
-          <Link to='/barcodescanner'><Text style={styles.text}>+</Text></Link>
+          <Link to='/additem'><Text style={styles.text}>+</Text></Link>
         </View>
       </View>
     );

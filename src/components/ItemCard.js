@@ -23,7 +23,7 @@ export default class ItemCard extends React.Component {
         <View>
           <Text style={styles.text}>{this.props.item.name}</Text>
           <View>
-            <Text style={styles.text}>x2</Text>
+            <Text style={styles.text}>Quanity: 2</Text>
           </View>
         </View>
       </View>
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontFamily: 'System',
+    fontWeight: '100' ,
     marginTop: 3
   },
   image: {
