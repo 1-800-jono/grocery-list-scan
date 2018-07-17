@@ -5,9 +5,6 @@ import { StyleSheet, Text, View, Image, ActivityIndicator } from 'react-native';
 export default class ItemCard extends React.Component {
   
   render() {
-    let pic = {
-      uri: 'https://avatars0.githubusercontent.com/u/1545577?s=460&v=4'
-    };
 
     //const image = this.props.item.name;
     //console.log(this.props.item.name);
