@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-native';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 
 export default class Top extends React.Component {
@@ -10,7 +9,7 @@ export default class Top extends React.Component {
       <View style={styles.container}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Grocery List Scan</Text>
-          <Link to='/additem'><Text style={styles.text}>+</Text></Link>
+          <Text style={styles.text}>+</Text>
         </View>
       </View>
     );
