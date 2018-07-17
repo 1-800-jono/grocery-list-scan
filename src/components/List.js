@@ -1,19 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import ItemCard from './ItemCard';
 
 
+
+
 export default class List extends React.Component {
+
+  onShowDetails = (itemx) => {
+    //alert(item.name);
+    this.props.navigation.navigate('ItemDetails', {...itemx})
+  };
   
   render() {
-    let pic = {
-      uri: 'https://avatars0.githubusercontent.com/u/1545577?s=460&v=4'
-    };
     return (
       <ScrollView style={styles.container}>
-        { Object.keys(this.props.items).map( key => {
-          return <ItemCard  key={key} item={this.props.items[key]} index={key}/>
-        })}
+        {
+          Object.keys(this.props.screenProps.items).map((key) => (
+            <TouchableOpacity onPress={() => this.onShowDetails(this.props.screenProps.items[key])} key={key}>
+             <ItemCard               
+                item={this.props.screenProps.items[key]} 
+                index={key}             
+              />
+           </TouchableOpacity>
+        ))}
       </ScrollView>
     );
   }
