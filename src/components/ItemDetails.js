@@ -16,7 +16,7 @@ export default class ItemDetails extends React.Component {
         />
         <List>
           <ListItem
-            title="Nombre"
+            title="Name"
             rightTitle={name}
             hideChevron
           />
@@ -28,7 +28,8 @@ export default class ItemDetails extends React.Component {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    backgroundColor: 'white'
+    //backgroundColor: 'white',
+    flex: 1
   },
   image: {
     marginBottom: 8,
