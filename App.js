@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
 
-import Top from './src/components/Top';
-import List from './src/components/List';
-import BarcodeScanner from './src/components/BarCodeScanner';
-import AddItem from './src/components/AddItem';
 import sampleItems from './src/temp-data/sample-fishes'; 
 
 import {Tabs} from './src/components/routing/router';

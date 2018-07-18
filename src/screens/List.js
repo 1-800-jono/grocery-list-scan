@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
-import ItemCard from './ItemCard';
-
-
+import ItemCard from '../components/ItemCard';
 
 
 export default class List extends React.Component {

@@ -6,7 +6,7 @@ import { Tile, List, ListItem } from 'react-native-elements';
 export default class ItemDetails extends React.Component {
   
   render() {
-    const { image, name } = this.props.navigation.state.params;
+    const { image, name, desc } = this.props.navigation.state.params;
     return (
       
       <View style={styles.itemContainer}>
@@ -18,6 +18,11 @@ export default class ItemDetails extends React.Component {
           <ListItem
             title="Name"
             rightTitle={name}
+            hideChevron
+          />
+          <ListItem
+            title="Description"
+            rightTitle={desc}
             hideChevron
           />
         </List>

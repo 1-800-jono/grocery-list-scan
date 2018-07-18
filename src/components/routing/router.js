@@ -2,15 +2,15 @@ import React from 'react';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import {Icon} from 'react-native-elements';
 
-import List from '../List';
-import ItemDetails from '../ItemDetails';
-import BarcodeScanner from '../BarCodeScanner';
+import List from '../../screens/List';
+import ItemDetails from '../../screens/ItemDetails';
+import BarcodeScanner from '../../screens/BarCodeScanner';
 
 export const ItemStack = createStackNavigator({
   List: {
     screen: List,
     navigationOptions: {
-      title: 'List'
+      title: 'List',
     },
   },
   ItemDetails: {
@@ -22,10 +22,18 @@ export const ItemStack = createStackNavigator({
 });
 
 export const Tabs = createBottomTabNavigator({
-  List: {
+  Buy: {
+    screen: List,
+    navigationOptions: {
+      tabBarLabel: 'Buy',
+      title: 'Buy',
+      tabBarIcon: ({tintColor}) => <Icon name="local-grocery-store" type="material-icons" size={35} color={tintColor}/>,
+    }
+  },
+  Inventory: {
     screen: ItemStack,
     navigationOptions: {
-      tabBarLabel: 'List',
+      tabBarLabel: 'Inventory',
       tabBarIcon: ({tintColor}) => <Icon name="list" size={35} color={tintColor}/>,
     }
   },
