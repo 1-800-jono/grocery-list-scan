@@ -14,18 +14,16 @@ export default class ItemDetails extends React.Component {
           imageSrc={image}
           featured
         />
-        <List>
-          <ListItem
+        <ListItem
             title="Name"
             rightTitle={name}
             hideChevron
           />
-          <ListItem
-            title="Description"
-            rightTitle={desc}
-            hideChevron
-          />
-        </List>
+        <ListItem
+          title="Description"
+          subtitle={desc}
+          hideChevron
+        />     
       </View>
     );
   }
