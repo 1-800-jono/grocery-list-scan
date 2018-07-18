@@ -5,9 +5,9 @@ import ItemCard from '../components/ItemCard';
 
 export default class List extends React.Component {
 
-  onShowDetails = (itemx) => {
+  onShowDetails = (item) => {
     //alert(item.name);
-    this.props.navigation.navigate('ItemDetails', {...itemx})
+    this.props.navigation.navigate('ItemDetails', {...item})
   };
   
   render() {
