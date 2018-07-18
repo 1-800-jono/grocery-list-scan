@@ -1,17 +1,27 @@
 import React from 'react';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
-import {Icon} from 'react-native-elements';
+import {Icon, Button} from 'react-native-elements';
 
 import List from '../../screens/List';
 import ItemDetails from '../../screens/ItemDetails';
+import AddItem from '../../screens/AddItem';
 import BarcodeScanner from '../../screens/BarCodeScanner';
 
 export const ItemStack = createStackNavigator({
-  List: {
+  Inventory: {
     screen: List,
-    navigationOptions: {
-      title: 'List',
-    },
+    navigationOptions: ({navigation}) => ({
+      headerTitle: 'Inventory',
+      headerRight: (
+        <Button 
+          title="New"
+          titleStyle={{color:  'blue'}}
+          clear
+          onPress={() => navigation.navigate('New')}
+          //buttonStyle = {{backgroundColor: 'transparent',}}
+        />
+      ),
+    }),
   },
   ItemDetails: {
     screen: ItemDetails,
@@ -27,14 +37,14 @@ export const Tabs = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Buy',
       title: 'Buy',
-      tabBarIcon: ({tintColor}) => <Icon name="local-grocery-store" type="material-icons" size={35} color={tintColor}/>,
+      tabBarIcon: ({tintColor}) => <Icon name="list" size={35} color={tintColor}/>,
     }
   },
   Inventory: {
     screen: ItemStack,
     navigationOptions: {
       tabBarLabel: 'Inventory',
-      tabBarIcon: ({tintColor}) => <Icon name="list" size={35} color={tintColor}/>,
+      tabBarIcon: ({tintColor}) => <Icon name="folder" type="entypo" size={35} color={tintColor}/>,
     }
   },
   BarcodeScanner: {
@@ -44,4 +54,16 @@ export const Tabs = createBottomTabNavigator({
       tabBarIcon: ({tintColor}) => <Icon name="barcode-scan" type="material-community" size={35} color={tintColor}/>,
     }
   }
+});
+
+export const Root = createStackNavigator({
+  Tabs: {
+    screen: Tabs,
+  },
+  New: {
+    screen: AddItem,
+  }
+}, {
+  mode: 'modal',
+  headerMode: 'none'
 });
