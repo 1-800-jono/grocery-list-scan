@@ -6,7 +6,6 @@ import ItemCard from '../components/ItemCard';
 export default class InventoryList extends React.Component {
 
   onShowDetails = (item) => {
-    //alert(item.name);
     this.props.navigation.navigate('ItemDetails', {...item})
   };
   
@@ -32,9 +31,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    //justifyContent: 'space-between',
-    //flexWrap: 'wrap',
-    backgroundColor: '#111',
     padding: 20
   },
   text: {

@@ -6,12 +6,11 @@ import ItemCard from '../components/ItemCard';
 export default class BuyList extends React.Component {
 
   onShowDetails = (item) => {
-    //alert(item.name);
     this.props.navigation.navigate('ItemDetails', {...item})
   };
   
   render() {
-
+    //Check to see if there's any items to display
     if (Object.keys(this.props.screenProps.buyList).length === 0) {
       return (
         <View style={styles.noItemContainer}>
@@ -20,7 +19,7 @@ export default class BuyList extends React.Component {
         </View>
       );
     } 
-
+    //If we have items then display them
     return (
       <ScrollView style={styles.container}>
         {
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     //justifyContent: 'space-between',
     //flexWrap: 'wrap',
-    backgroundColor: '#111',
+    //backgroundColor: '#111',
     padding: 20
   },
   text: {

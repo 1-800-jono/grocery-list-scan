@@ -1,3 +1,4 @@
+console.ignoredYellowBox = ['Remote debugger']; //Temp fix for annoying warning
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
 //import base from './src/base';

@@ -19,7 +19,6 @@ export const ItemStack = createStackNavigator({
           titleStyle={{color:  'blue'}}
           clear
           onPress={() => navigation.navigate('New')}
-          //buttonStyle = {{backgroundColor: 'transparent',}}
         />
       ),
     }),
