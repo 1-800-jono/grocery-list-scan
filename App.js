@@ -23,17 +23,24 @@ class App extends Component {
     const buyList = {...this.state.buyList}
     buyList[key] = item;
     this.setState({ buyList });
-  }
+  };
+
+  addToInventory = (item) => {
+    const inventory = {...this.state.inventory}
+    inventory[item.name] = item;
+    this.setState({ inventory});
+  };
 
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <StatusBar backgroundColor="blue" barStyle="light-content"/>
+        <StatusBar backgroundColor="blue" barStyle="dark-content"/>
         <Root 
           screenProps={{
             inventory: this.state.inventory,
             buyList: this.state.buyList,
-            addToBuyList: this.addToBuyList
+            addToBuyList: this.addToBuyList,
+            addToInventory: this.addToInventory
           }}
           />
      </View>
