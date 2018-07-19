@@ -2,7 +2,8 @@ import React from 'react';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import {Icon, Button} from 'react-native-elements';
 
-import List from '../../screens/List';
+import List from '../../screens/InventoryList';
+import BuyList from '../../screens/BuyList';
 import ItemDetails from '../../screens/ItemDetails';
 import AddItem from '../../screens/AddItem';
 import BarcodeScanner from '../../screens/BarCodeScanner';
@@ -33,7 +34,7 @@ export const ItemStack = createStackNavigator({
 
 export const Tabs = createBottomTabNavigator({
   Buy: {
-    screen: List,
+    screen: BuyList,
     navigationOptions: {
       tabBarLabel: 'Buy',
       title: 'Buy',
