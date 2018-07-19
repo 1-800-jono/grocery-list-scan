@@ -1,16 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import {Icon, Button, Input} from 'react-native-elements';
 
 
 export default class AddItem extends React.Component {
-
-  state = {
-    name: '',
-  }
+ 
+  goToCamera = () => {
+    this.props.navigation.navigate('Camera')
+  };
 
   handleSubmit = () => {
-    alert(this.state.name);
+    //Create item object
+    const item = {
+      name: this.state.name,
+    }
+    //Send item object to addToInventory methond on app then it adds it to state
+    this.props.screenProps.addToInventory(item)
   }
 
   
@@ -19,9 +24,11 @@ export default class AddItem extends React.Component {
     return (
       <View style={styles.itemContainer}>
         
-        <View style={styles.imageTile}>
-          <Icon name="add-a-photo" size={35} type="material-icons" />
-        </View>
+        <TouchableOpacity onPress={() => this.goToCamera()}>
+          <View style={styles.imageTile}>
+            <Icon name="add-a-photo" size={35} type="material-icons" />
+          </View>
+        </TouchableOpacity>
 
         <View style={styles.formContainer}>
           <Input 
@@ -34,7 +41,7 @@ export default class AddItem extends React.Component {
             <Text style={styles.fakeLable}>Barcode</Text>
             <Text style={styles.fakeLable}>11111</Text>
           </View>
-          <Button title="Add Product" onPress={() => this.handleSubmit()}/>
+          <Button title="Add Product" onPress={this.handleSubmit}/>
         </View>
       </View>
     );
