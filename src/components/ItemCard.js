@@ -16,12 +16,13 @@ export default class ItemCard extends React.Component {
     const item = this.props.item;
     return (
       <View style={styles.itemContainer}>
-       
+       { item.image && 
         <Avatar
           size="large"
           rounded
           source={item.image}
         />
+      }
         <View style={styles.info}>
           <Text style={styles.text}>{item.name}</Text>
           <View>
