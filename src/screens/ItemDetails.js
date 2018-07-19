@@ -19,11 +19,13 @@ export default class ItemDetails extends React.Component {
             rightTitle={name}
             hideChevron
           />
-        <ListItem
-          title="Description"
-          subtitle={desc}
-          hideChevron
-        />     
+        {desc &&
+          <ListItem
+            title="Description"
+            subtitle={desc}
+            hideChevron
+          /> 
+        }    
       </View>
     );
   }
