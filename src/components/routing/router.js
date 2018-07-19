@@ -7,6 +7,7 @@ import BuyList from '../../screens/BuyList';
 import ItemDetails from '../../screens/ItemDetails';
 import AddItem from '../../screens/AddItem';
 import BarcodeScanner from '../../screens/BarCodeScanner';
+import Camera from '../../screens/Camera';
 
 export const ItemStack = createStackNavigator({
   Inventory: {
@@ -56,12 +57,24 @@ export const Tabs = createBottomTabNavigator({
   }
 });
 
+export const AddItemStack = createStackNavigator({
+  New: {
+    screen: AddItem,
+    navigationOptions: {
+      title: 'Add New Item'
+    }
+  },
+  Camera: {
+    screen: Camera
+  }
+});
+
 export const Root = createStackNavigator({
   Tabs: {
     screen: Tabs,
   },
   New: {
-    screen: AddItem,
+    screen: AddItemStack,
   }
 }, {
   mode: 'modal',
