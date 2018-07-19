@@ -1,26 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Image, ActivityIndicator, Button } from 'react-native';
 
 
 export default class ItemCard extends React.Component {
   
   render() {
 
-    //const image = this.props.item.name;
-    //console.log(this.props.item.name);
     if (!this.props.item) {
       return <ActivityIndicator animating={true} size="small" />
     } 
     
     //const img = require(this.props.item.image);
-    
+    const item = this.props.item;
     return (
       <View style={styles.itemContainer}>
-        <Image source={this.props.item.image} style={styles.image} />
+        <Image source={item.image} style={styles.image} />
         <View>
-          <Text style={styles.text}>{this.props.item.name}</Text>
+          <Text style={styles.text}>{item.name}</Text>
           <View>
-            <Text style={styles.text}>Quanity: 2</Text>
+            <Button title="Add" onPress={() => this.props.addToBuyList(this.props.index, item)}/>
           </View>
         </View>
       </View>
