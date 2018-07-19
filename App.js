@@ -10,18 +10,31 @@ import {Root} from './src/components/routing/router';
 class App extends Component {
 
   state = {
-    items: {}
+    inventory: {},
+    buyList: {}
   }
 
   componentWillMount() {
-    this.setState({ items: sampleItems });
+    this.setState({ inventory: sampleItems });
+  }
+
+  addToBuyList = (key, item) => {
+    const buyList = {...this.state.buyList}
+    buyList[key] = item;
+    this.setState({ buyList });
   }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <StatusBar backgroundColor="blue" barStyle="light-content"/>
-        <Root screenProps={{items: this.state.items}}/>
+        <Root 
+          screenProps={{
+            inventory: this.state.inventory,
+            buyList: this.state.buyList,
+            addToBuyList: this.addToBuyList
+          }}
+          />
      </View>
     );
   }
