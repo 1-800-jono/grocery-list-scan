@@ -21,7 +21,10 @@ export default class AddItem extends React.Component {
       image: this.state.image
     }
     //Send item object to addToInventory methond on app then it adds it to state
-    this.props.screenProps.addToInventory(item)
+    this.props.screenProps.addToInventory(item);
+    //Let's go back to Inventory
+    //this.props.navigation.goBack();
+    this.props.navigation.navigate('Inventory');
   };
 
   handleImage = (image) => {
