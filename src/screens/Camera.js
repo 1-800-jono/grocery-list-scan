@@ -15,10 +15,11 @@ export default class CameraItem extends React.Component {
   }
 
   componentDidMount() {
+    //Create inside the app a directory to store image 
     FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'photos').catch(e => {
       console.log(e, 'Directory exists');
     });
-    console.log(FileSystem.readDirectoryAsync(`${FileSystem.documentDirectory}photos`));
+    //console.log(FileSystem.readDirectoryAsync(`${FileSystem.documentDirectory}photos`));
   }
 
   takePicture = () => {
@@ -29,13 +30,16 @@ export default class CameraItem extends React.Component {
   };
 
   onPictureSaved =  photo => {
-    console.log(photo.uri)
+    //Move image from trmp cache to a directory we inside app we created on mount
     const imageID = Date.now();
      FileSystem.moveAsync({
       from: photo.uri,
       to: `${FileSystem.documentDirectory}photos/${imageID}.jpg`,
     });
+    //Use image path as parameter for handleImage which add it to state on AddItem component
     this.props.navigation.state.params.handleImage(`${FileSystem.documentDirectory}photos/${imageID}.jpg`);
+    //We go back to AddItem component
+    this.props.navigation.goBack();
     //console.log(FileSystem.readDirectoryAsync(`${FileSystem.documentDirectory}photos`));
   }
 
