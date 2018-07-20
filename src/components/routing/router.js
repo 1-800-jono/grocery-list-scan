@@ -32,9 +32,18 @@ export const ItemStack = createStackNavigator({
   }
 });
 
-export const Tabs = createBottomTabNavigator({
+export const BuyStack = createStackNavigator({
   Buy: {
     screen: BuyList,
+    navigationOptions: {
+     headerTitle: 'Buy List',
+    }
+  }
+});
+
+export const Tabs = createBottomTabNavigator({
+  Buy: {
+    screen: BuyStack,
     navigationOptions: {
       tabBarLabel: 'Buy',
       title: 'Buy',
