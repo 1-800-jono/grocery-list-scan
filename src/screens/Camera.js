@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Camera, Permissions, FileSystem } from 'expo';
 import {Icon} from 'react-native-elements';
 
-export default class CameraExample extends React.Component {
+export default class CameraItem extends React.Component {
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
@@ -18,27 +18,25 @@ export default class CameraExample extends React.Component {
     FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'photos').catch(e => {
       console.log(e, 'Directory exists');
     });
+    console.log(FileSystem.readDirectoryAsync(`${FileSystem.documentDirectory}photos`));
   }
 
   takePicture = () => {
     if (this.camera) {
-      console.log('snaped')
-      this.camera.takePictureAsync({
-        onPictureSaved: this.onPictureSaved
-      });
+      this.camera.takePictureAsync()
+        .then(data => this.onPictureSaved(data))
     }
   };
 
-  onPictureSaved = async photo => {
-    console.log('on picture saved')
-    await FileSystem.moveAsync({
+  onPictureSaved =  photo => {
+    console.log(photo.uri)
+    const imageID = Date.now();
+     FileSystem.moveAsync({
       from: photo.uri,
-      to: `${FileSystem.documentDirectory}photos/${Date.now()}.jpg`,
+      to: `${FileSystem.documentDirectory}photos/${imageID}.jpg`,
     });
-    this.setState({
-      newPhotos: true
-    });
-    alert('saved')
+    this.props.navigation.state.params.handleImage(`${FileSystem.documentDirectory}photos/${imageID}.jpg`);
+    //console.log(FileSystem.readDirectoryAsync(`${FileSystem.documentDirectory}photos`));
   }
 
   render() {
