@@ -19,7 +19,7 @@ export default class BuyList extends React.Component {
         </View>
       );
     } 
-    //If we have items then display them
+    //If we have items then display then
     return (
       <ScrollView style={styles.container}>
         {
