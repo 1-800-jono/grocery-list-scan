@@ -20,7 +20,7 @@ export default class ItemCard extends React.Component {
         <Avatar
           size="large"
           rounded
-          source={item.image}
+          source={{uri: item.image}}
         />
       }
         <View style={styles.info}>

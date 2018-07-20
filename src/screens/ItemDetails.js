@@ -11,7 +11,7 @@ export default class ItemDetails extends React.Component {
       
       <View style={styles.itemContainer}>
         <Tile
-          imageSrc={image}
+          imageSrc={{uri: image}}
           featured
         />
         <ListItem
