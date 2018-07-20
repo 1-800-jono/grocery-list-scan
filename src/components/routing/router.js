@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import {Icon, Button} from 'react-native-elements';
 
-import List from '../../screens/InventoryList';
+import InventoryList from '../../screens/InventoryList';
 import BuyList from '../../screens/BuyList';
 import ItemDetails from '../../screens/ItemDetails';
 import AddItem from '../../screens/AddItem';
@@ -11,7 +11,7 @@ import Camera from '../../screens/Camera';
 
 export const ItemStack = createStackNavigator({
   Inventory: {
-    screen: List,
+    screen: InventoryList,
     navigationOptions: ({navigation}) => ({
       headerTitle: 'Inventory',
       headerRight: (
