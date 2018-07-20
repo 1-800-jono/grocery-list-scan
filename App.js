@@ -15,9 +15,9 @@ class App extends Component {
     buyList: {}
   }
 
-  componentWillMount() {
-    this.setState({ inventory: sampleItems });
-  }
+  // componentWillMount() {
+  //   this.setState({ inventory: sampleItems });
+  // }
 
   addToBuyList = (key, item) => {
     const buyList = {...this.state.buyList}
